@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MedicamentoViewModel
+@{
+    ViewData["Title"] = "Crear Medicamento";
+}
+
+<section class="formulario container">
+    <form asp-action="crear">
+        <h2>Agrega un Medicamento</h2>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-tablets" style="color:aliceblue;"></i>
+                <input type="text" placeholder="Nombre medicamento" asp-for="GsNombreMedicamento" />
+            </div>
+            <div class="input-container">
+                <i class="fa-regular fa-money-bill-1" style="color: aliceblue;"></i>
+                <input type="number" placeholder="Precio medicamento" step="0.01" min="0" asp-for="GsPrecioMedicamento" />
+            </div>
+             <div class="input-container">
+                <i class="fa-solid fa-book-medical" style="color: aliceblue;"></i>
+                <textarea type="text" placeholder="Descripcion" asp-for="GsDescripcionMedicamento"></textarea>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index" asp-controller="Home" class="btn-2"><i class="fa-solid fa-hand-point-left" style="color: #ffffff;"></i></a>
+            <button type="submit" class="btn-2"><i class=' fa-regular fa-floppy-disk'></i></button>
+        </div>
+    </form>
+</section>
+

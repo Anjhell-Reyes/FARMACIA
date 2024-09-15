@@ -1,0 +1,31 @@
+﻿@model MedicamentoViewModel
+@{
+    ViewData["Title"] = "Editar Medicamento";
+}
+
+<section class="formulario container">
+    <form asp-action="editar">
+        <h2>Editar un Medicamento: @Model.GsNombreMedicamento</h2>
+        <input type="hidden" asp-for="GsId" />
+        <div class="input-group">
+            <div class="input-container">
+                <i class="fa-solid fa-tablets" style="color:aliceblue;"></i>
+                <input type="text" placeholder="Nombre medicamento" asp-for="GsNombreMedicamento" />
+            </div>
+            <div class="input-container">
+                <i class="fa-regular fa-money-bill-1" style="color: aliceblue;"></i>
+                <input type="number" placeholder="Precio medicamento" step="0.01" min="0" asp-for="GsPrecioMedicamento" />
+            </div>
+            <div class="input-container">
+                <i class="fa-solid fa-book-medical" style="color: aliceblue;"></i>
+                <input type="text" placeholder="Descripcion" asp-for="GsDescripcionMedicamento" />
+            </div>
+        </div>
+        <div>
+            <a asp-action="medicamentos" class="btn-2"><i class="fa-solid fa-hand-point-left" style="color: #ffffff;"></i></a>
+            <button type="submit" class="btn-2"><i class="fa-solid fa-wrench" style="color: #ffffff;"></i></button>
+        </div>
+    </form>
+</section>
+
+

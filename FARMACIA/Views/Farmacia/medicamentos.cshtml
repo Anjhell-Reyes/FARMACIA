@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MedicamentoViewModel>
+@{
+    ViewData["Title"] = "Medicamentos";
+}
+
+<div>
+    <h2 class="title-crear">MEDICAMENTOS</h2>
+</div>
+<div class="d-flex justify-content-end" style="margin-right: 1%">
+    <a asp-action="crear" asp-controller="Farmacia" class="btn-1"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
+</div>
+<main class="productos" style="padding: 0;">
+    <div class="productos-content container">
+  @if (Model != null)
+    {
+        int contador = 0;
+            foreach (var medicamento in Model)
+            {
+                if (contador == 3)
+                {
+                    @: </div><div class="productos-content container">
+                    contador = 0;
+                }
+                <div class="producto-1">
+                    <i class="fa-solid fa-prescription-bottle-medical" style="color: cadetblue;"></i>
+                    <h3>@medicamento.GsNombreMedicamento</h3>
+                    <p style="color: green;">$@medicamento.GsPrecioMedicamento</p>
+                    <p>@medicamento.GsDescripcionMedicamento</p>
+                    <a class="btn" style="background-color:cadetblue" asp-action="editar" asp-route-gsId="@medicamento.GsId"><i class="fa-solid fa-pencil" style="color: #ffffff; font-size: 20px; margin-top:8px"></i></a>
+                    <a class="btn btn-danger" asp-action="borrar" asp-route-Id="@medicamento.GsId"><i class="fa-solid fa-trash" style="color: #ffffff; font-size: 20px; margin-top:8px"></i></a> 
+                </div>
+                 
+                contador++;
+            }
+            }
+</main>

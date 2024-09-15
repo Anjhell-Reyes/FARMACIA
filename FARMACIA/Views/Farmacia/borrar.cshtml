@@ -1,0 +1,17 @@
+﻿
+@model MedicamentoViewModel
+@{
+    ViewData["Title"] = "Eliminar Medicamento";
+}
+<h2 class="mb-3 text-center">Estas seguro de eliminar el medicamento <b>"@Model.GsNombreMedicamento"</b></h2>
+
+    <h4 class="py-2 text-center">Si elimina el medicamento esta se borrara <b>PERNAMENTEMENTE</b></h4>
+<section class="formulario container">
+    <form asp-action="borrar">
+        <input type="hidden" asp-for="GsId" />
+        <a asp-action="medicamentos" class="btn" style="background-color:cadetblue"><i class="fa-solid fa-hand-point-left" style="color: #ffffff;"></i></a>
+        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+
+    </form>
+</section>
+  

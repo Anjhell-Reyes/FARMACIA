@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MedicamentoViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <header class="header">
+    
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>FarmaSalud</h1>
+                <p>
+                    Bienvenido a FarmaSalud, tu farmacia online de confianza.
+<br/>
+<br/>
+En FarmaSalud, te ofrecemos una manera fácil y segura de comprar tus medicamentos y productos de salud sin salir de casa. Nuestra tienda en línea cuenta con una amplia gama de medicamentos recetados y de venta libre, siempre cumpliendo con los más altos estándares de calidad y seguridad.
+                </p>
+                <a asp-action="crear" asp-controller="Farmacia" class="btn-1">Agrega Medicamentos</a>
+            </div>
+            <div class="header-img">
+                <img src="~/img/imagen1.png" alt=""/>
+            </div>
+        </div>
+    </header>
+    <main class="productos">
+        <div class="productos-content container">
+            @if (Model != null)
+            {
+                int contador = 0;
+                foreach (var medicamento in Model)
+                {
+                    if (contador == 3)
+                    {
+                        @: </div>
+                        break;
+                    }
+                    <div class="producto-1">
+                        <i class="fa-solid fa-prescription-bottle-medical" style="color: cadetblue;"></i>
+                        <h3>@medicamento.GsNombreMedicamento</h3>
+                        <p style="color: green;">$@medicamento.GsPrecioMedicamento</p>
+                        <p>@medicamento.GsDescripcionMedicamento</p>
+                    </div>
+                    contador++;
+                }
+            }
+    </main>
+
+
+</body>
